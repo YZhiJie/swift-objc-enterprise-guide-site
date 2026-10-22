@@ -1,0 +1,1348 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Swift &amp; ObjC 学园 · 漫画支部 · 银翼工坊</title>
+  <!-- 相对路径：漫画阅读器位于站点 /comics/ 下，上一级即站点根 -->
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    :root {
+      --swift: #F05138;
+      --apple: #007AFF;
+      --objc: #7C3AED;
+      --ink: #1e293b;
+      --gray: #475569;
+      --weak: #94a3b8;
+      --line: #c8d3e8;
+      --bg: #f0f4fa;
+      --panel: #ffffff;
+      --code-bg: #1e293b;
+      --amber-bg: #fef3c7;
+      --amber-line: #f59e0b;
+      --amber-ink: #78350f;
+    }
+
+    html,
+    body {
+      height: 100%;
+    }
+
+    body {
+      font-family: 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.6;
+      overscroll-behavior-y: none;
+    }
+
+    .mono {
+      font-family: 'SFMono-Regular', Menlo, Consolas, monospace;
+    }
+
+    body.reader-lock {
+      overflow: hidden;
+    }
+
+    /* ============ 首页目录 ============ */
+    .hero {
+      background: linear-gradient(135deg, #F05138 0%, #007AFF 100%);
+      color: #fff;
+      padding: 44px 24px 40px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 2rem;
+      margin-bottom: 8px;
+      letter-spacing: 1px;
+    }
+
+    .hero p {
+      font-size: 1rem;
+      opacity: 0.92;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 28px 16px 48px;
+    }
+
+    .resume-bar {
+      display: none;
+      max-width: 1200px;
+      margin: -22px auto 0;
+      padding: 0 16px;
+    }
+
+    .resume-bar.show {
+      display: block;
+    }
+
+    .resume-btn {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--panel);
+      border: 2px solid var(--swift);
+      border-radius: 14px;
+      padding: 14px 18px;
+      cursor: pointer;
+      text-align: left;
+      box-shadow: 0 4px 16px rgba(240, 81, 56, .12);
+      transition: transform .15s, box-shadow .15s;
+      color: var(--ink);
+      font-size: .95rem;
+    }
+
+    .resume-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 22px rgba(240, 81, 56, .2);
+    }
+
+    .resume-btn .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--swift);
+      flex: none;
+    }
+
+    .resume-btn .arrow {
+      margin-left: auto;
+      color: var(--swift);
+      font-weight: bold;
+    }
+
+    .section-title {
+      font-size: 1.35rem;
+      font-weight: bold;
+      margin: 30px 0 14px;
+      padding-left: 12px;
+      border-left: 4px solid var(--swift);
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+    }
+
+    .section-title small {
+      font-size: .8rem;
+      color: var(--weak);
+      font-weight: normal;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      position: relative;
+      background: var(--panel);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, .06);
+      border: 2px solid var(--line);
+      cursor: pointer;
+      transition: transform .2s, box-shadow .2s, border-color .2s;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 26px rgba(0, 0, 0, .13);
+      border-color: var(--apple);
+    }
+
+    .card.current {
+      border-color: var(--swift);
+      box-shadow: 0 6px 20px rgba(240, 81, 56, .18);
+    }
+
+    .thumb {
+      aspect-ratio: 1200/840;
+      background: #e8eef8;
+      overflow: hidden;
+    }
+
+    .thumb img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .card-body {
+      padding: 14px 16px 16px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .ep-badge {
+      display: inline-block;
+      background: var(--swift);
+      color: #fff;
+      font-size: .76rem;
+      font-weight: bold;
+      padding: 2px 10px;
+      border-radius: 12px;
+      margin-bottom: 8px;
+      align-self: flex-start;
+    }
+
+    .card h3 {
+      font-size: 1rem;
+      margin-bottom: 10px;
+      line-height: 1.45;
+    }
+
+    .read-mark {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: rgba(52, 168, 83, .95);
+      color: #fff;
+      font-size: .72rem;
+      font-weight: bold;
+      padding: 3px 9px;
+      border-radius: 11px;
+    }
+
+    .mini-links {
+      display: flex;
+      gap: 8px;
+      margin-top: auto;
+    }
+
+    .mini-links a {
+      flex: 1;
+      text-align: center;
+      padding: 6px 10px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: .82rem;
+      font-weight: 600;
+      transition: opacity .15s;
+    }
+
+    .mini-links a:hover {
+      opacity: .8;
+    }
+
+    .mini-links .l-svg {
+      background: #eff6ff;
+      color: var(--apple);
+      border: 1px solid #bfdbfe;
+    }
+
+    .mini-links .l-md {
+      background: #fef2f2;
+      color: var(--swift);
+      border: 1px solid #fecaca;
+    }
+
+    footer {
+      text-align: center;
+      padding: 34px 16px;
+      color: var(--weak);
+      font-size: .85rem;
+    }
+
+    footer a {
+      color: var(--apple);
+    }
+
+    /* ============ 阅读器 ============ */
+    .reader {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      background: var(--bg);
+      flex-direction: column;
+    }
+
+    .reader.open {
+      display: flex;
+    }
+
+    .reader-top {
+      flex: none;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 0 12px;
+      background: rgba(255, 255, 255, .92);
+      backdrop-filter: saturate(180%) blur(12px);
+      border-bottom: 1px solid var(--line);
+      z-index: 5;
+    }
+
+    .icon-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      background: #fff;
+      cursor: pointer;
+      font-size: 1.15rem;
+      color: var(--ink);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: none;
+      transition: background .15s, transform .1s;
+    }
+
+    .icon-btn:hover {
+      background: #f1f5f9;
+    }
+
+    .icon-btn:active {
+      transform: scale(.94);
+    }
+
+    .reader-title {
+      min-width: 0;
+      flex: 1;
+    }
+
+    .reader-title .ep {
+      font-size: .72rem;
+      font-weight: bold;
+      color: var(--swift);
+      letter-spacing: .5px;
+    }
+
+    .reader-title .ttl {
+      font-size: .92rem;
+      font-weight: bold;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .progress-track {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -1px;
+      height: 3px;
+      background: transparent;
+    }
+
+    .progress-bar {
+      height: 100%;
+      width: 0;
+      background: linear-gradient(90deg, var(--swift), var(--apple));
+      transition: width .12s linear;
+    }
+
+    .reader-scroll {
+      flex: 1;
+      overflow-y: auto;
+      overflow-x: hidden;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .reader-inner {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 20px 18px 28px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+      gap: 22px;
+      align-items: start;
+    }
+
+    .art-col {
+      position: sticky;
+      top: 16px;
+    }
+
+    .art-frame {
+      border-radius: 14px;
+      overflow: hidden;
+      background: #fff;
+      border: 2px solid var(--line);
+      box-shadow: 0 6px 22px rgba(30, 41, 59, .1);
+    }
+
+    .art-frame img {
+      width: 100%;
+      display: block;
+    }
+
+    .art-links {
+      display: flex;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .art-links a {
+      flex: 1;
+      text-align: center;
+      padding: 8px;
+      border-radius: 9px;
+      font-size: .84rem;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .art-links .l-svg {
+      background: #eff6ff;
+      color: var(--apple);
+      border: 1px solid #bfdbfe;
+    }
+
+    .art-links .l-md {
+      background: #fef2f2;
+      color: var(--swift);
+      border: 1px solid #fecaca;
+    }
+
+    /* 话间切换动画：独立过渡类，不改变 display 语义 */
+    .reader-inner {
+      transition: opacity .26s ease, transform .26s ease;
+    }
+
+    .reader-inner.leave-next {
+      opacity: 0;
+      transform: translateX(-42px);
+    }
+
+    .reader-inner.leave-prev {
+      opacity: 0;
+      transform: translateX(42px);
+    }
+
+    .reader-inner.enter-next {
+      opacity: 0;
+      transform: translateX(42px);
+    }
+
+    .reader-inner.enter-prev {
+      opacity: 0;
+      transform: translateX(-42px);
+    }
+
+    /* ============ Markdown 排版 ============ */
+    .doc-col {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 26px 26px 30px;
+      box-shadow: 0 4px 16px rgba(30, 41, 59, .06);
+      min-height: 300px;
+    }
+
+    .md-body h1 {
+      font-size: 1.45rem;
+      line-height: 1.4;
+      margin-bottom: 14px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--line);
+    }
+
+    .md-body h2 {
+      font-size: 1.12rem;
+      margin: 24px 0 10px;
+      padding-left: 10px;
+      border-left: 4px solid var(--apple);
+      line-height: 1.4;
+    }
+
+    .md-body h3 {
+      font-size: 1rem;
+      margin: 18px 0 8px;
+      color: var(--ink);
+    }
+
+    .md-body p {
+      margin: 9px 0;
+      font-size: .95rem;
+      color: #334155;
+    }
+
+    .md-body ul,
+    .md-body ol {
+      margin: 9px 0 9px 4px;
+      padding-left: 22px;
+    }
+
+    .md-body li {
+      margin: 5px 0;
+      font-size: .95rem;
+      color: #334155;
+    }
+
+    .md-body li::marker {
+      color: var(--swift);
+      font-weight: bold;
+    }
+
+    .md-body strong {
+      color: var(--ink);
+    }
+
+    .md-body code {
+      font-family: 'SFMono-Regular', Menlo, Consolas, monospace;
+      background: #f1f5f9;
+      color: #be123c;
+      padding: 1px 6px;
+      border-radius: 5px;
+      font-size: .86em;
+    }
+
+    .md-body pre {
+      background: var(--code-bg);
+      border-radius: 10px;
+      padding: 14px 16px;
+      overflow-x: auto;
+      margin: 12px 0;
+    }
+
+    .md-body pre code {
+      background: none;
+      color: #e2e8f0;
+      padding: 0;
+      font-size: .84rem;
+    }
+
+    .md-body blockquote {
+      background: var(--amber-bg);
+      border-left: 4px solid var(--amber-line);
+      border-radius: 0 10px 10px 0;
+      padding: 10px 14px;
+      margin: 12px 0;
+      font-size: .9rem;
+      color: var(--amber-ink);
+    }
+
+    .md-body blockquote a {
+      color: #b45309;
+    }
+
+    .md-body a {
+      color: var(--apple);
+      text-decoration: none;
+      border-bottom: 1px solid #bfdbfe;
+      word-break: break-all;
+    }
+
+    .md-body a:hover {
+      border-bottom-color: var(--apple);
+    }
+
+    .md-body hr {
+      border: none;
+      border-top: 1px dashed var(--line);
+      margin: 18px 0;
+    }
+
+    .md-body table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0;
+      font-size: .88rem;
+      display: block;
+      overflow-x: auto;
+    }
+
+    .md-body th,
+    .md-body td {
+      border: 1px solid var(--line);
+      padding: 8px 10px;
+      text-align: left;
+    }
+
+    .md-body th {
+      background: #f1f5f9;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+
+    .md-body tr:nth-child(even) td {
+      background: #f8fafc;
+    }
+
+    .md-error {
+      text-align: center;
+      padding: 30px 16px;
+      color: var(--gray);
+    }
+
+    .md-error .big {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .md-error p {
+      font-size: .9rem;
+      margin-bottom: 16px;
+    }
+
+    .md-error .btns {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .md-error a {
+      padding: 9px 18px;
+      border-radius: 9px;
+      text-decoration: none;
+      font-size: .88rem;
+      font-weight: 600;
+    }
+
+    /* ============ 底部话间导航 ============ */
+    .reader-nav {
+      flex: none;
+      display: flex;
+      align-items: stretch;
+      gap: 10px;
+      padding: 10px 14px calc(10px + env(safe-area-inset-bottom));
+      background: rgba(255, 255, 255, .94);
+      backdrop-filter: saturate(180%) blur(12px);
+      border-top: 1px solid var(--line);
+    }
+
+    .nav-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border: 1.5px solid var(--line);
+      background: #fff;
+      border-radius: 12px;
+      padding: 10px 14px;
+      cursor: pointer;
+      min-width: 0;
+      flex: 1;
+      transition: border-color .15s, background .15s, transform .1s, opacity .15s;
+      color: var(--ink);
+    }
+
+    .nav-btn:hover:not(:disabled) {
+      border-color: var(--apple);
+      background: #f8fbff;
+    }
+
+    .nav-btn:active:not(:disabled) {
+      transform: scale(.98);
+    }
+
+    .nav-btn:disabled {
+      opacity: .35;
+      cursor: default;
+    }
+
+    .nav-btn .nav-dir {
+      font-size: .72rem;
+      color: var(--weak);
+      display: block;
+      line-height: 1.3;
+    }
+
+    .nav-btn .nav-name {
+      font-size: .86rem;
+      font-weight: 600;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: block;
+    }
+
+    .nav-btn.next {
+      text-align: right;
+      flex-direction: row-reverse;
+    }
+
+    .nav-btn .chev {
+      font-size: 1.2rem;
+      color: var(--apple);
+      flex: none;
+    }
+
+    .nav-counter {
+      flex: none;
+      align-self: center;
+      text-align: center;
+      padding: 0 6px;
+      font-size: .82rem;
+      color: var(--gray);
+      min-width: 64px;
+    }
+
+    .nav-counter b {
+      color: var(--swift);
+      font-size: .95rem;
+    }
+
+    /* ============ 目录抽屉 ============ */
+    .scrim {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 110;
+      background: rgba(15, 23, 42, .42);
+      opacity: 0;
+      transition: opacity .22s;
+    }
+
+    .scrim.show {
+      display: block;
+    }
+
+    .scrim.in {
+      opacity: 1;
+    }
+
+    .drawer {
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      z-index: 120;
+      width: min(340px, 86vw);
+      background: #fff;
+      transform: translateX(-105%);
+      transition: transform .26s cubic-bezier(.22, .8, .32, 1);
+      display: flex;
+      flex-direction: column;
+      box-shadow: 8px 0 30px rgba(15, 23, 42, .18);
+    }
+
+    .drawer.in {
+      transform: translateX(0);
+    }
+
+    .drawer-head {
+      flex: none;
+      padding: 18px 18px 14px;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(135deg, #F05138, #007AFF);
+      color: #fff;
+    }
+
+    .drawer-head h2 {
+      font-size: 1.05rem;
+    }
+
+    .drawer-head p {
+      font-size: .78rem;
+      opacity: .88;
+      margin-top: 2px;
+    }
+
+    .drawer-list {
+      flex: 1;
+      overflow-y: auto;
+      padding: 8px;
+    }
+
+    .drawer-item {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border: none;
+      background: none;
+      cursor: pointer;
+      text-align: left;
+      padding: 10px 10px;
+      border-radius: 10px;
+      transition: background .13s;
+    }
+
+    .drawer-item:hover {
+      background: #f1f5f9;
+    }
+
+    .drawer-item.active {
+      background: #fff1ed;
+    }
+
+    .drawer-item .d-ep {
+      flex: none;
+      width: 52px;
+      font-size: .72rem;
+      font-weight: bold;
+      color: var(--swift);
+      font-family: 'SFMono-Regular', Menlo, monospace;
+    }
+
+    .drawer-item .d-ttl {
+      font-size: .86rem;
+      color: var(--ink);
+      line-height: 1.35;
+      flex: 1;
+    }
+
+    .drawer-item .d-ok {
+      flex: none;
+      width: 18px;
+      color: #34a853;
+      font-size: .85rem;
+      visibility: hidden;
+    }
+
+    .drawer-item.read .d-ok {
+      visibility: visible;
+    }
+
+    .hint-key {
+      position: fixed;
+      right: 14px;
+      bottom: 86px;
+      z-index: 6;
+      font-size: .72rem;
+      color: var(--weak);
+      background: rgba(255, 255, 255, .82);
+      padding: 5px 10px;
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      pointer-events: none;
+    }
+
+    @media (hover: none) {
+      .hint-key {
+        display: none;
+      }
+    }
+
+    /* ============ 响应式 ============ */
+    @media (max-width: 900px) {
+      .reader-inner {
+        grid-template-columns: 1fr;
+        gap: 14px;
+        padding: 14px 12px 20px;
+      }
+
+      .art-col {
+        position: static;
+      }
+
+      .doc-col {
+        padding: 20px 18px 24px;
+      }
+
+      .nav-btn .nav-name {
+        max-width: 38vw;
+      }
+
+      .hero h1 {
+        font-size: 1.45rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-btn {
+        padding: 9px 10px;
+      }
+
+      .nav-counter {
+        min-width: 48px;
+        font-size: .76rem;
+        padding: 0 2px;
+      }
+
+      .nav-btn .nav-name {
+        display: none;
+      }
+
+      .nav-btn .nav-dir {
+        font-size: .78rem;
+      }
+
+      .nav-btn .chev {
+        font-size: 1.35rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ============ 首页 ============ -->
+  <div id="home">
+    <div class="hero">
+      <h1>Swift &amp; ObjC 学园 · 漫画支部</h1>
+      <p>银翼工坊 Silverwing Workshop · 15 话漫画走完 Apple 企业级开发全链路</p>
+    </div>
+
+    <div class="resume-bar" id="resumeBar">
+      <button class="resume-btn" id="resumeBtn">
+        <span class="dot"></span>
+        <span id="resumeText"></span>
+        <span class="arrow">继续阅读 →</span>
+      </button>
+    </div>
+
+    <div class="container">
+      <h2 class="section-title">入门 &amp; 混编阶段 <small>EP.01–04</small></h2>
+      <div class="grid" id="grid1"></div>
+
+      <h2 class="section-title">进阶 &amp; 工程化阶段 <small>EP.05–10</small></h2>
+      <div class="grid" id="grid2"></div>
+
+      <h2 class="section-title">专题扩展阶段 <small>EP.11–15</small></h2>
+      <div class="grid" id="grid3"></div>
+    </div>
+
+    <footer>
+      银翼工坊 Silverwing Workshop ·
+      <a href="../README.md">返回教程首页</a> ·
+      阅读器支持 ← → 键 / 手势滑动切换话数，进度自动保存
+    </footer>
+  </div>
+
+  <!-- ============ 阅读器 ============ -->
+  <div class="reader" id="reader" aria-hidden="true">
+    <div class="reader-top">
+      <button class="icon-btn" id="btnHome" title="返回目录（Esc）" aria-label="返回目录">←</button>
+      <div class="reader-title">
+        <div class="ep mono" id="rEp"></div>
+        <div class="ttl" id="rTtl"></div>
+      </div>
+      <button class="icon-btn" id="btnToc" title="话数目录" aria-label="话数目录">☰</button>
+      <div class="progress-track">
+        <div class="progress-bar" id="progressBar"></div>
+      </div>
+    </div>
+
+    <div class="reader-scroll" id="readerScroll">
+      <div class="reader-inner" id="readerInner">
+        <div class="art-col">
+          <div class="art-frame"><img id="artImg" src="" alt=""></div>
+          <div class="art-links">
+            <a class="l-svg" id="artSvgLink" href="#" target="_blank" rel="noopener">在新标签打开原画</a>
+            <a class="l-md" id="artMdLink" href="#" target="_blank" rel="noopener">打开讲解 MD</a>
+          </div>
+        </div>
+        <div class="doc-col" id="docCol"></div>
+      </div>
+    </div>
+
+    <div class="reader-nav">
+      <button class="nav-btn prev" id="btnPrev">
+        <span class="chev">‹</span>
+        <span><span class="nav-dir">上一话</span><span class="nav-name" id="prevName"></span></span>
+      </button>
+      <div class="nav-counter mono"><b id="curIdx">1</b> / 15</div>
+      <button class="nav-btn next" id="btnNext">
+        <span class="chev">›</span>
+        <span><span class="nav-dir">下一话</span><span class="nav-name" id="nextName"></span></span>
+      </button>
+    </div>
+
+    <div class="hint-key mono">← → 切换 · Esc 目录</div>
+  </div>
+
+  <!-- ============ 目录抽屉 ============ -->
+  <div class="scrim" id="scrim"></div>
+  <aside class="drawer" id="drawer" aria-label="话数目录">
+    <div class="drawer-head">
+      <h2>全部话数</h2>
+      <p>银翼工坊 · 15 话</p>
+    </div>
+    <div class="drawer-list" id="drawerList"></div>
+  </aside>
+
+  <script>
+    'use strict';
+
+    /* ================= 数据 ================= */
+    const EPISODES = [
+      { ep: 'EP.01', comic: 'EP.01-swift-basics', title: 'Swift 基础：可选类型与值引用' },
+      { ep: 'EP.02', comic: 'EP.02-swift-advanced', title: 'Swift 高级：结构化并发与 Actor' },
+      { ep: 'EP.03', comic: 'EP.03-objc-runtime', title: 'ObjC 运行时：消息机制与转发' },
+      { ep: 'EP.04', comic: 'EP.04-swift-objc-interop', title: '混编：桥接头与渐进迁移' },
+      { ep: 'EP.05', comic: 'EP.05-apple-frameworks', title: '框架：UIKit 与 SwiftUI 双轨' },
+      { ep: 'EP.06', comic: 'EP.06-performance-security', title: '性能与安全：Instruments 与 Keychain' },
+      { ep: 'EP.07', comic: 'EP.07-testing-quality', title: '测试：XCTest 与质量门禁' },
+      { ep: 'EP.08', comic: 'EP.08-build-deployment', title: '构建部署：签名与 CI/CD' },
+      { ep: 'EP.09', comic: 'EP.09-team-collaboration', title: '团队协作：规范与 Code Review' },
+      { ep: 'EP.10', comic: 'EP.10-enterprise-applications', title: '企业场景：行业与合规' },
+      { ep: 'EP.11', comic: 'EP.11-ios-architecture', title: '架构：MVC/MVVM/TCA 选型' },
+      { ep: 'EP.12', comic: 'EP.12-on-device-ai', title: '端上智能：Core ML 与设备侧 AI' },
+      { ep: 'EP.13', comic: 'EP.13-i18n-a11y', title: '国际化与无障碍' },
+      { ep: 'EP.14', comic: 'EP.14-system-touchpoints', title: '系统触点：Widget 与 App Intents' },
+      { ep: 'EP.15', comic: 'EP.15-observability-ops', title: '运营闭环：可观测性与灰度' }
+    ];
+    const STORE_KEY = 'silverwing-reader-v1';
+
+    /* ================= 进度存储 ================= */
+    function loadProgress() {
+      try { return JSON.parse(localStorage.getItem(STORE_KEY)) || { last: null, read: {} }; }
+      catch { return { last: null, read: {} }; }
+    }
+    function saveProgress(p) { try { localStorage.setItem(STORE_KEY, JSON.stringify(p)); } catch { } }
+    let progress = loadProgress();
+
+    /* ================= DOM ================= */
+    const $ = (id) => document.getElementById(id);
+    const home = $('home'), reader = $('reader');
+    const inner = $('readerInner'), docCol = $('docCol');
+    const scrollBox = $('readerScroll');
+
+    let currentIdx = -1;
+    let animating = false;
+
+    /* ================= 首页卡片 ================= */
+    function makeCard(item, i) {
+      const read = progress.read[item.comic];
+      return `
+    <div class="card" data-i="${i}">
+      ${read ? '<span class="read-mark">已读 ✓</span>' : ''}
+      <div class="thumb"><img src="./${item.comic}.svg" alt="${item.title}" loading="lazy"></div>
+      <div class="card-body">
+        <span class="ep-badge mono">${item.ep}</span>
+        <h3>${item.title}</h3>
+        <div class="mini-links">
+          <a class="l-svg" href="./${item.comic}.svg" target="_blank" rel="noopener" data-act="svg">原画</a>
+          <a class="l-md" href="./${item.comic}.md" target="_blank" rel="noopener" data-act="md">讲解</a>
+        </div>
+      </div>
+    </div>`;
+    }
+    function renderHome() {
+      $('grid1').innerHTML = EPISODES.slice(0, 4).map(makeCard).join('');
+      $('grid2').innerHTML = EPISODES.slice(4, 10).map(makeCard).join('');
+      $('grid3').innerHTML = EPISODES.slice(10, 15).map(makeCard).join('');
+      document.querySelectorAll('.card').forEach((el) => {
+        el.classList.toggle('current', progress.last === EPISODES[+el.dataset.i].comic);
+      });
+      if (progress.last) {
+        const item = EPISODES.find((e) => e.comic === progress.last);
+        if (item) {
+          $('resumeBar').classList.add('show');
+          $('resumeText').textContent = `继续阅读 ${item.ep} ${item.title}`;
+        }
+      }
+    }
+    document.querySelector('.container').addEventListener('click', (e) => {
+      const link = e.target.closest('a[data-act]');
+      if (link) { e.stopPropagation(); return; } // 直开链接走默认行为
+      const card = e.target.closest('.card');
+      if (card) openEpisode(+card.dataset.i);
+    });
+    $('resumeBtn').addEventListener('click', () => {
+      const i = EPISODES.findIndex((e) => e.comic === progress.last);
+      if (i >= 0) openEpisode(i);
+    });
+
+    /* ================= 抽屉目录 ================= */
+    function renderDrawer() {
+      $('drawerList').innerHTML = EPISODES.map((item, i) => `
+    <button class="drawer-item ${i === currentIdx ? 'active' : ''} ${progress.read[item.comic] ? 'read' : ''}" data-i="${i}">
+      <span class="d-ep">${item.ep}</span>
+      <span class="d-ttl">${item.title}</span>
+      <span class="d-ok">✓</span>
+    </button>`).join('');
+    }
+    $('drawerList').addEventListener('click', (e) => {
+      const btn = e.target.closest('.drawer-item');
+      if (btn) { openEpisode(+btn.dataset.i); closeDrawer(); }
+    });
+    function openDrawer() {
+      renderDrawer();
+      $('scrim').classList.add('show');
+      requestAnimationFrame(() => { $('scrim').classList.add('in'); $('drawer').classList.add('in'); });
+    }
+    function closeDrawer() {
+      $('scrim').classList.remove('in'); $('drawer').classList.remove('in');
+      setTimeout(() => $('scrim').classList.remove('show'), 240);
+    }
+    $('btnToc').addEventListener('click', openDrawer);
+    $('scrim').addEventListener('click', closeDrawer);
+
+    /* ================= 轻量 Markdown ================= */
+    function escapeHtml(s) {
+      return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    }
+    function renderInline(text) {
+      const codes = [];
+      let s = text.replace(/`([^`]+)`/g, (_, c) => {
+        codes.push(c); return '\u0000' + (codes.length - 1) + '\u0000';
+      });
+      s = escapeHtml(s);
+      s = s.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+      s = s.replace(/\[([^\]]+)\]\(([^)\s]+)\)/g,
+        (m, t, u) => `<a href="${u}" target="_blank" rel="noopener">${t}</a>`);
+      s = s.replace(/\u0000(\d+)\u0000/g, (m, i) => `<code>${escapeHtml(codes[+i])}</code>`);
+      return s;
+    }
+    function mdToHtml(src) {
+      const lines = src.replace(/\r\n?/g, '\n').split('\n');
+      const out = [];
+      let i = 0;
+      const isTableSep = (l) => /^\s*\|?[\s:\-|]+\|?\s*$/.test(l) && l.includes('-');
+
+      while (i < lines.length) {
+        const line = lines[i];
+
+        // 围栏代码块
+        if (/^```/.test(line)) {
+          const buf = [];
+          i++;
+          while (i < lines.length && !/^```/.test(lines[i])) { buf.push(lines[i]); i++; }
+          i++; // 结束围栏
+          out.push(`<pre><code>${escapeHtml(buf.join('\n'))}</code></pre>`);
+          continue;
+        }
+        // 表格
+        if (line.includes('|') && i + 1 < lines.length && isTableSep(lines[i + 1])) {
+          const parseRow = (l) => l.trim().replace(/^\|/, '').replace(/\|$/, '')
+            .split('|').map((c) => c.trim());
+          const head = parseRow(line);
+          i += 2;
+          const rows = [];
+          while (i < lines.length && lines[i].includes('|') && lines[i].trim()) {
+            rows.push(parseRow(lines[i])); i++;
+          }
+          out.push('<table><thead><tr>' + head.map((c) => `<th>${renderInline(c)}</th>`).join('') +
+            '</tr></thead><tbody>' +
+            rows.map((r) => '<tr>' + head.map((_, k) => `<td>${renderInline(r[k] || '')}</td>`).join('') + '</tr>').join('') +
+            '</tbody></table>');
+          continue;
+        }
+        // 标题
+        let m = line.match(/^(#{1,4})\s+(.*)$/);
+        if (m) { out.push(`<h${m[1].length}>${renderInline(m[2])}</h${m[1].length}>`); i++; continue; }
+        // 引用
+        if (/^>\s?/.test(line)) {
+          const buf = [];
+          while (i < lines.length && /^>\s?/.test(lines[i])) { buf.push(lines[i].replace(/^>\s?/, '')); i++; }
+          out.push(`<blockquote>${renderInline(buf.join('<br>'))}</blockquote>`);
+          continue;
+        }
+        // 分隔线
+        if (/^---+\s*$/.test(line)) { out.push('<hr>'); i++; continue; }
+        // 无序列表
+        if (/^[-*]\s+/.test(line)) {
+          const buf = [];
+          while (i < lines.length && /^[-*]\s+/.test(lines[i])) { buf.push(lines[i].replace(/^[-*]\s+/, '')); i++; }
+          out.push('<ul>' + buf.map((x) => `<li>${renderInline(x)}</li>`).join('') + '</ul>');
+          continue;
+        }
+        // 有序列表
+        if (/^\d+\.\s+/.test(line)) {
+          const buf = [];
+          while (i < lines.length && /^\d+\.\s+/.test(lines[i])) { buf.push(lines[i].replace(/^\d+\.\s+/, '')); i++; }
+          out.push('<ol>' + buf.map((x) => `<li>${renderInline(x)}</li>`).join('') + '</ol>');
+          continue;
+        }
+        // 空行
+        if (!line.trim()) { i++; continue; }
+        // 段落（合并到下一空行/块标记前）
+        const buf = [line];
+        i++;
+        while (i < lines.length && lines[i].trim() &&
+          !/^(#{1,4}\s|>\s?|[-*]\s|\d+\.\s|```|\|)/.test(lines[i]) &&
+          !(lines[i].includes('|') && i + 1 < lines.length && isTableSep(lines[i + 1]))) {
+          buf.push(lines[i]); i++;
+        }
+        out.push(`<p>${renderInline(buf.join(' '))}</p>`);
+      }
+      return '<div class="md-body">' + out.join('\n') + '</div>';
+    }
+    function mdErrorHtml(item) {
+      return `<div class="md-error">
+    <div class="big">📖</div>
+    <p>讲解内容加载失败。若直接双击打开 HTML（file:// 协议），<br>浏览器会拦截本地文件读取，请改用本地服务器，或直接打开原文件：</p>
+    <div class="btns">
+      <a class="l-svg" href="./${item.comic}.svg" target="_blank" rel="noopener">查看原画 SVG</a>
+      <a class="l-md" href="./${item.comic}.md" target="_blank" rel="noopener">查看讲解 MD</a>
+    </div>
+  </div>`;
+    }
+
+    /* ================= 阅读器渲染与切换状态机 ================= */
+    function fillContent(item) {
+      $('rEp').textContent = item.ep;
+      $('rTtl').textContent = item.title;
+      $('artImg').src = `./${item.comic}.svg`;
+      $('artImg').alt = item.title;
+      $('artSvgLink').href = `./${item.comic}.svg`;
+      $('artMdLink').href = `./${item.comic}.md`;
+      $('curIdx').textContent = currentIdx + 1;
+
+      const prev = EPISODES[currentIdx - 1], next = EPISODES[currentIdx + 1];
+      $('btnPrev').disabled = !prev;
+      $('btnNext').disabled = !next;
+      $('prevName').textContent = prev ? prev.ep + ' ' + prev.title : '';
+      $('nextName').textContent = next ? next.ep + ' ' + next.title : '';
+
+      docCol.innerHTML = '<div class="md-error"><p>讲解加载中…</p></div>';
+      fetch(`./${item.comic}.md`)
+        .then((r) => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.text(); })
+        .then((md) => { docCol.innerHTML = mdToHtml(md); })
+        .catch(() => { if (currentIdx === EPISODES.indexOf(item)) docCol.innerHTML = mdErrorHtml(item); });
+    }
+
+    /**
+     * 统一切话入口：先离场（按方向位移+淡出），动画结束替换内容，
+     * 再从反方向进场。rAF 双帧保证过渡类生效，transitionend + 超时双保险。
+     */
+    function transitionTo(newIdx, dir) {
+      if (newIdx < 0 || newIdx >= EPISODES.length || newIdx === currentIdx || animating) return;
+      animating = true;
+      const leaveCls = dir > 0 ? 'leave-next' : 'leave-prev';
+      const enterCls = dir > 0 ? 'enter-next' : 'enter-prev';
+
+      const swap = () => {
+        currentIdx = newIdx;
+        scrollBox.scrollTop = 0;
+        fillContent(EPISODES[newIdx]);
+        progress.last = EPISODES[newIdx].comic;
+        saveProgress(progress);
+        const targetHash = '#/read/' + EPISODES[newIdx].comic;
+        if (location.hash !== targetHash) history.replaceState(null, '', targetHash);
+        inner.classList.remove(leaveCls);
+        inner.classList.add(enterCls);
+        requestAnimationFrame(() => requestAnimationFrame(() => {
+          inner.classList.remove(enterCls);
+        }));
+        setTimeout(() => { animating = false; }, 300);
+      };
+      inner.classList.add(leaveCls);
+      let done = false;
+      const finish = () => { if (!done) { done = true; inner.removeEventListener('transitionend', onEnd); swap(); } };
+      const onEnd = (e) => { if (e.target === inner && (e.propertyName === 'opacity')) finish(); };
+      inner.addEventListener('transitionend', onEnd);
+      setTimeout(finish, 280); // 兜底，防止 transitionend 丢失
+    }
+
+    function openEpisode(i) {
+      if (i < 0 || i >= EPISODES.length) return;
+      const dir = i > currentIdx ? 1 : -1;
+      if (!reader.classList.contains('open')) {
+        // 首次进入：展示阅读器后直接播进场动画
+        currentIdx = i;
+        reader.classList.add('open');
+        document.body.classList.add('reader-lock');
+        reader.setAttribute('aria-hidden', 'false');
+        fillContent(EPISODES[i]);
+        progress.last = EPISODES[i].comic;
+        saveProgress(progress);
+        scrollBox.scrollTop = 0;
+        inner.classList.add('enter-next');
+        requestAnimationFrame(() => requestAnimationFrame(() => inner.classList.remove('enter-next')));
+        renderHome();
+        const targetHash = '#/read/' + EPISODES[i].comic;
+        if (location.hash !== targetHash) history.pushState(null, '', targetHash);
+      } else {
+        transitionTo(i, dir);
+      }
+    }
+    function closeReader() {
+      reader.classList.remove('open');
+      document.body.classList.remove('reader-lock');
+      reader.setAttribute('aria-hidden', 'true');
+      currentIdx = -1;
+      if (location.hash !== '#/' && location.hash !== '') history.pushState(null, '', '#/');
+      renderHome();
+    }
+
+    $('btnPrev').addEventListener('click', () => transitionTo(currentIdx - 1, -1));
+    $('btnNext').addEventListener('click', () => transitionTo(currentIdx + 1, 1));
+    $('btnHome').addEventListener('click', closeReader);
+
+    /* ================= 键盘切换 ================= */
+    document.addEventListener('keydown', (e) => {
+      if (!reader.classList.contains('open')) return;
+      if ($('drawer').classList.contains('in')) { if (e.key === 'Escape') closeDrawer(); return; }
+      if (e.key === 'ArrowLeft') { e.preventDefault(); transitionTo(currentIdx - 1, -1); }
+      else if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); transitionTo(currentIdx + 1, 1); }
+      else if (e.key === 'Escape') { closeReader(); }
+    });
+
+    /* ================= 触摸滑动切换（移动端） ================= */
+    let touchX = 0, touchY = 0, touching = false;
+    scrollBox.addEventListener('touchstart', (e) => {
+      if (e.touches.length !== 1) return;
+      touchX = e.touches[0].clientX; touchY = e.touches[0].clientY; touching = true;
+    }, { passive: true });
+    scrollBox.addEventListener('touchend', (e) => {
+      if (!touching) return;
+      touching = false;
+      const dx = e.changedTouches[0].clientX - touchX;
+      const dy = e.changedTouches[0].clientY - touchY;
+      if (Math.abs(dx) > 56 && Math.abs(dx) > Math.abs(dy) * 1.4) {
+        transitionTo(currentIdx + (dx < 0 ? 1 : -1), dx < 0 ? 1 : -1);
+      }
+    }, { passive: true });
+
+    /* ================= 阅读进度条 + 已读标记 ================= */
+    scrollBox.addEventListener('scroll', () => {
+      const max = scrollBox.scrollHeight - scrollBox.clientHeight;
+      const pct = max > 0 ? Math.min(100, (scrollBox.scrollTop / max) * 100) : 0;
+      $('progressBar').style.width = pct + '%';
+      if (pct >= 82 && currentIdx >= 0) {
+        const key = EPISODES[currentIdx].comic;
+        if (!progress.read[key]) {
+          progress.read[key] = true;
+          saveProgress(progress);
+        }
+      }
+    }, { passive: true });
+
+    /* ================= hash 路由：前进/后退/刷新恢复 ================= */
+    function route() {
+      const m = location.hash.match(/^#\/read\/(.+)$/);
+      if (m) {
+        const i = EPISODES.findIndex((e) => e.comic === decodeURIComponent(m[1]));
+        if (i >= 0) {
+          if (!reader.classList.contains('open')) {
+            currentIdx = i;
+            reader.classList.add('open');
+            document.body.classList.add('reader-lock');
+            reader.setAttribute('aria-hidden', 'false');
+            fillContent(EPISODES[i]);
+            progress.last = EPISODES[i].comic;
+            saveProgress(progress);
+            scrollBox.scrollTop = 0;
+            renderHome();
+          } else if (i !== currentIdx) {
+            transitionTo(i, i > currentIdx ? 1 : -1);
+          }
+          return;
+        }
+      }
+      if (reader.classList.contains('open')) {
+        reader.classList.remove('open');
+        document.body.classList.remove('reader-lock');
+        reader.setAttribute('aria-hidden', 'true');
+        currentIdx = -1;
+        renderHome();
+      }
+    }
+    window.addEventListener('hashchange', route);
+
+    /* ================= 启动 ================= */
+    renderHome();
+    route();
+  </script>
+</body>
+
+</html>

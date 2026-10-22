@@ -1,0 +1,50 @@
+{
+  "version": 1,
+  "generatedAt": "2026-10-22T13:58:19.435Z",
+  "entries": [
+    {
+      "id": "examples/Sources/SystemTouchpoints/WidgetDeepLink.swift",
+      "lang": "swift",
+      "src": "examples/Sources/SystemTouchpoints/WidgetDeepLink.swift",
+      "lines": "all",
+      "pages": [
+        "14-system-touchpoints"
+      ],
+      "runner": "guidelab",
+      "runnerReason": null
+    },
+    {
+      "id": "examples/Sources/ObservabilityOps/MetricKitReport.swift",
+      "lang": "swift",
+      "src": "examples/Sources/ObservabilityOps/MetricKitReport.swift",
+      "lines": "all",
+      "pages": [
+        "15-observability-ops"
+      ],
+      "runner": "guidelab",
+      "runnerReason": null
+    },
+    {
+      "id": "examples/Sources/ObservabilityOps/EventPipeline.swift",
+      "lang": "swift",
+      "src": "examples/Sources/ObservabilityOps/EventPipeline.swift",
+      "lines": "all",
+      "pages": [
+        "15-observability-ops"
+      ],
+      "runner": "guidelab",
+      "runnerReason": null
+    },
+    {
+      "id": "examples/Sources/ObservabilityOps/ExperimentRollout.swift",
+      "lang": "swift",
+      "src": "examples/Sources/ObservabilityOps/ExperimentRollout.swift",
+      "lines": "all",
+      "pages": [
+        "15-observability-ops"
+      ],
+      "runner": "guidelab",
+      "runnerReason": null
+    }
+  ]
+}

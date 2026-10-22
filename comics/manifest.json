@@ -1,0 +1,23 @@
+{
+    "series": "Swift & ObjC 学园漫画支部",
+    "style": "银翼工坊 Silverwing Workshop",
+    "version": "1.0.0",
+    "note": "每话对应根目录一章正文；SVG 画布 1200x840，三格 + 知识条结构，规范见 style-guide.md",
+    "episodes": [
+        { "ep": "EP.01", "comic": "EP.01-swift-basics", "doc": "01-swift-basics.md", "title": "Swift 基础：可选类型与值引用" },
+        { "ep": "EP.02", "comic": "EP.02-swift-advanced", "doc": "02-swift-advanced.md", "title": "Swift 高级：结构化并发与 Actor" },
+        { "ep": "EP.03", "comic": "EP.03-objc-runtime", "doc": "03-objc-runtime.md", "title": "ObjC 运行时：消息机制与转发" },
+        { "ep": "EP.04", "comic": "EP.04-swift-objc-interop", "doc": "04-swift-objc-interop.md", "title": "混编：桥接头与渐进迁移" },
+        { "ep": "EP.05", "comic": "EP.05-apple-frameworks", "doc": "05-apple-frameworks.md", "title": "框架：UIKit 与 SwiftUI 双轨" },
+        { "ep": "EP.06", "comic": "EP.06-performance-security", "doc": "06-performance-security.md", "title": "性能与安全：Instruments 与 Keychain" },
+        { "ep": "EP.07", "comic": "EP.07-testing-quality", "doc": "07-testing-quality.md", "title": "测试：XCTest 与质量门禁" },
+        { "ep": "EP.08", "comic": "EP.08-build-deployment", "doc": "08-build-deployment.md", "title": "构建部署：签名与 CI/CD" },
+        { "ep": "EP.09", "comic": "EP.09-team-collaboration", "doc": "09-team-collaboration.md", "title": "团队协作：规范与 Code Review" },
+        { "ep": "EP.10", "comic": "EP.10-enterprise-applications", "doc": "10-enterprise-applications.md", "title": "企业场景：行业与合规" },
+        { "ep": "EP.11", "comic": "EP.11-ios-architecture", "doc": "11-ios-architecture.md", "title": "架构：MVC/MVVM/TCA 选型" },
+        { "ep": "EP.12", "comic": "EP.12-on-device-ai", "doc": "12-on-device-ai.md", "title": "端上智能：Core ML 与设备侧 AI" },
+        { "ep": "EP.13", "comic": "EP.13-i18n-a11y", "doc": "13-i18n-a11y.md", "title": "国际化与无障碍" },
+        { "ep": "EP.14", "comic": "EP.14-system-touchpoints", "doc": "14-system-touchpoints.md", "title": "系统触点：Widget 与 App Intents" },
+        { "ep": "EP.15", "comic": "EP.15-observability-ops", "doc": "15-observability-ops.md", "title": "运营闭环：可观测性与灰度" }
+    ]
+}
