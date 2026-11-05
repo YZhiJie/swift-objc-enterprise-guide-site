@@ -1,0 +1,127 @@
+{
+  "version": 1,
+  "generatedAt": "2026-11-05T05:24:00.634Z",
+  "entries": [
+    {
+      "id": "examples/Sources/SystemTouchpoints/WidgetDeepLink.swift",
+      "lang": "swift",
+      "src": "examples/Sources/SystemTouchpoints/WidgetDeepLink.swift",
+      "lines": "all",
+      "pages": [
+        "14-system-touchpoints"
+      ],
+      "runner": "guidelab",
+      "runnerReason": null
+    },
+    {
+      "id": "examples/Sources/ObservabilityOps/MetricKitReport.swift",
+      "lang": "swift",
+      "src": "examples/Sources/ObservabilityOps/MetricKitReport.swift",
+      "lines": "all",
+      "pages": [
+        "15-observability-ops"
+      ],
+      "runner": "guidelab",
+      "runnerReason": null
+    },
+    {
+      "id": "examples/Sources/ObservabilityOps/EventPipeline.swift",
+      "lang": "swift",
+      "src": "examples/Sources/ObservabilityOps/EventPipeline.swift",
+      "lines": "all",
+      "pages": [
+        "15-observability-ops"
+      ],
+      "runner": "guidelab",
+      "runnerReason": null
+    },
+    {
+      "id": "examples/Sources/ObservabilityOps/ExperimentRollout.swift",
+      "lang": "swift",
+      "src": "examples/Sources/ObservabilityOps/ExperimentRollout.swift",
+      "lines": "all",
+      "pages": [
+        "15-observability-ops"
+      ],
+      "runner": "guidelab",
+      "runnerReason": null
+    },
+    {
+      "id": "examples/Sources/MediaPipeline/AudioSessionPolicy.swift",
+      "lang": "swift",
+      "src": "examples/Sources/MediaPipeline/AudioSessionPolicy.swift",
+      "lines": "all",
+      "pages": [
+        "16-audio-video-pipeline"
+      ],
+      "runner": "guidelab",
+      "runnerReason": null
+    },
+    {
+      "id": "examples/Sources/MediaPipeline/ReconnectPolicy.swift",
+      "lang": "swift",
+      "src": "examples/Sources/MediaPipeline/ReconnectPolicy.swift",
+      "lines": "all",
+      "pages": [
+        "16-audio-video-pipeline"
+      ],
+      "runner": "guidelab",
+      "runnerReason": null
+    },
+    {
+      "id": "examples/Sources/MediaPipeline/BitrateController.swift",
+      "lang": "swift",
+      "src": "examples/Sources/MediaPipeline/BitrateController.swift",
+      "lines": "all",
+      "pages": [
+        "16-audio-video-pipeline"
+      ],
+      "runner": "guidelab",
+      "runnerReason": null
+    },
+    {
+      "id": "examples/Sources/MediaPipeline/JitterBuffer.swift",
+      "lang": "swift",
+      "src": "examples/Sources/MediaPipeline/JitterBuffer.swift",
+      "lines": "all",
+      "pages": [
+        "16-audio-video-pipeline"
+      ],
+      "runner": "guidelab",
+      "runnerReason": null
+    },
+    {
+      "id": "examples/Sources/PlayerMetrics/PlaybackTimeline.swift",
+      "lang": "swift",
+      "src": "examples/Sources/PlayerMetrics/PlaybackTimeline.swift",
+      "lines": "all",
+      "pages": [
+        "17-player-quality-metrics"
+      ],
+      "runner": "guidelab",
+      "runnerReason": null
+    },
+    {
+      "id": "examples/Sources/PlayerMetrics/QualityMetrics.swift",
+      "lang": "swift",
+      "src": "examples/Sources/PlayerMetrics/QualityMetrics.swift",
+      "lines": "all",
+      "pages": [
+        "17-player-quality-metrics"
+      ],
+      "runner": "guidelab",
+      "runnerReason": null
+    },
+    {
+      "id": "examples/Sources/PlayerMetrics/PlaybackGate.swift",
+      "lang": "swift",
+      "src": "examples/Sources/PlayerMetrics/PlaybackGate.swift",
+      "lines": "all",
+      "pages": [
+        "17-player-quality-metrics"
+      ],
+      "runner": "guidelab",
+      "runnerReason": null
+    }
+  ]
+}

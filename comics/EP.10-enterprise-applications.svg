@@ -1,0 +1,151 @@
+<!-- EP.10 · 企业场景 — 行业与合规，规范见 ./style-guide.md -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 840">
+  <defs>
+    <style>
+      .t{font-family:'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;}
+      .m{font-family:'SFMono-Regular',Menlo,Consolas,monospace;}
+      .st{font-size:15px;fill:#64748b;}
+      .bt{font-size:30px;font-weight:bold;fill:#1e293b;}
+      .pt{font-size:19px;font-weight:bold;fill:#1e293b;}
+      .an{font-size:12.5px;fill:#64748b;}
+      .cd{font-size:11.5px;fill:#e2e8f0;}
+      .kt{font-size:20px;font-weight:bold;fill:#78350f;}
+      .kb{font-size:15px;fill:#78350f;}
+      .ft{font-size:12.5px;fill:#94a3b8;}
+    </style>
+    <g id="swifty">
+      <ellipse cx="0" cy="2" rx="42" ry="7" fill="#1e293b" opacity="0.12"/>
+      <path d="M -28 -8 Q -30 -22 -16 -26 L 16 -26 Q 30 -22 28 -8 Z" fill="#F05138"/>
+      <ellipse cx="0" cy="-6" rx="32" ry="38" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2.5"/>
+      <ellipse cx="0" cy="2" rx="20" ry="22" fill="#ffffff"/>
+      <path d="M -8 -8 Q 0 -2 8 -8" stroke="#F05138" stroke-width="2" fill="none" stroke-linecap="round"/>
+      <circle cx="-11" cy="-14" r="5.5" fill="#1e293b"/>
+      <circle cx="11" cy="-14" r="5.5" fill="#1e293b"/>
+      <circle cx="-9" cy="-16" r="1.8" fill="#ffffff"/>
+      <circle cx="13" cy="-16" r="1.8" fill="#ffffff"/>
+      <path d="M 0 -6 L -4 0 L 4 0 Z" fill="#f97316"/>
+      <path d="M -16 -38 L -12 -50 L -8 -38 Z" fill="#F05138"/>
+      <path d="M -4 -40 L 0 -54 L 4 -40 Z" fill="#F05138"/>
+      <path d="M 8 -38 L 12 -50 L 16 -38 Z" fill="#F05138"/>
+      <path d="M -32 -10 Q -46 -4 -38 14 Q -30 8 -26 -2 Z" fill="#F05138" stroke="#dc2626" stroke-width="1.5"/>
+      <path d="M 32 -10 Q 46 -4 38 14 Q 30 8 26 -2 Z" fill="#F05138" stroke="#dc2626" stroke-width="1.5"/>
+      <line x1="-10" y1="30" x2="-10" y2="42" stroke="#f97316" stroke-width="3" stroke-linecap="round"/>
+      <line x1="10" y1="30" x2="10" y2="42" stroke="#f97316" stroke-width="3" stroke-linecap="round"/>
+    </g>
+    <g id="elder">
+      <ellipse cx="0" cy="60" rx="40" ry="6" fill="#1e293b" opacity="0.12"/>
+      <path d="M -30 58 L 30 58 L 24 2 L -24 2 Z" fill="#7C3AED" stroke="#5b21b6" stroke-width="2"/>
+      <rect x="-20" y="20" width="40" height="6" rx="3" fill="#a78bfa"/>
+      <circle cx="0" cy="-22" r="30" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2.5"/>
+      <path d="M -22 -26 Q -24 -40 -10 -44 L 10 -44 Q 24 -40 22 -26" fill="#4c1d95"/>
+      <circle cx="-10" cy="-25" r="7" fill="none" stroke="#64748b" stroke-width="1.8"/>
+      <circle cx="10" cy="-25" r="7" fill="none" stroke="#64748b" stroke-width="1.8"/>
+      <line x1="-3" y1="-25" x2="3" y2="-25" stroke="#64748b" stroke-width="1.8"/>
+      <circle cx="-10" cy="-25" r="3" fill="#007AFF"/>
+      <circle cx="10" cy="-25" r="3" fill="#007AFF"/>
+      <path d="M -10 -8 Q 0 -4 10 -8" stroke="#94a3b8" stroke-width="2" fill="none" stroke-linecap="round"/>
+      <path d="M -14 -6 Q -12 8 -6 14 L 6 14 Q 12 8 14 -6" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5"/>
+      <line x1="0" y1="-54" x2="0" y2="-72" stroke="#64748b" stroke-width="3"/>
+      <circle cx="0" cy="-76" r="6" fill="#F05138" stroke="#1e293b" stroke-width="1.5"/>
+      <path d="M 0 -82 L -4 -76 L 4 -76 Z" fill="#22c55e"/>
+    </g>
+  </defs>
+
+  <rect x="0" y="0" width="1200" height="840" fill="#f0f4fa"/>
+  <circle cx="180" cy="64" r="60" fill="#F05138" opacity="0.05"/>
+  <circle cx="1120" cy="120" r="80" fill="#007AFF" opacity="0.05"/>
+  <circle cx="1100" cy="760" r="70" fill="#7C3AED" opacity="0.04"/>
+  <circle cx="140" cy="780" r="50" fill="#F05138" opacity="0.04"/>
+
+  <rect x="40" y="6" width="120" height="6" rx="3" fill="#F05138"/>
+  <rect x="40" y="16" width="120" height="6" rx="3" fill="#007AFF"/>
+  <text class="t st" x="40" y="40">Swift &amp; ObjC 学园 · 漫画支部</text>
+  <text class="t bt" x="40" y="80">第 10 话 · 企业场景 — 行业与合规</text>
+  <rect x="1020" y="26" width="140" height="44" rx="22" fill="#F05138"/>
+  <text class="m" x="1090" y="54" text-anchor="middle" font-size="19" font-weight="bold" fill="#ffffff">EP.10</text>
+  <line x1="0" y1="96" x2="1200" y2="96" stroke="#c8d3e8" stroke-width="2"/>
+
+  <!-- ===== 格1 · 痛点现场 ===== -->
+  <rect x="40" y="120" width="556" height="250" rx="16" fill="#ffffff" stroke="#c8d3e8" stroke-width="3"/>
+  <circle cx="66" cy="146" r="14" fill="#F05138"/>
+  <text class="m" x="66" y="151" text-anchor="middle" font-size="15" font-weight="bold" fill="#ffffff">1</text>
+  <text class="t pt" x="92" y="152">痛点现场 · 合规不过上架被拒</text>
+  <rect x="64" y="176" width="270" height="150" rx="12" fill="#1e293b" stroke="#e5484d" stroke-width="2.5"/>
+  <circle cx="84" cy="194" r="5.5" fill="#ff6b6b"/>
+  <circle cx="102" cy="194" r="5.5" fill="#ffd166"/>
+  <circle cx="120" cy="194" r="5.5" fill="#4cd97b"/>
+  <text class="m" x="84" y="222" font-size="11.5" fill="#f87171">App Store 审核被拒:</text>
+  <text class="m" x="84" y="240" font-size="11" fill="#e2e8f0">Guideline 5.1.1</text>
+  <text class="m" x="84" y="258" font-size="11" fill="#e2e8f0">未声明数据收集用途</text>
+  <text class="m" x="84" y="296" font-size="11" fill="#fbbf24">金融: 缺交易签名</text>
+  <text class="m" x="84" y="316" font-size="11" fill="#f87171">医疗: 不符合 HIPAA</text>
+  <polygon points="470,238 486,238 478,252" fill="#ffffff" stroke="#F05138" stroke-width="2.5"/>
+  <rect x="388" y="178" width="156" height="60" rx="12" fill="#ffffff" stroke="#F05138" stroke-width="2.5"/>
+  <text class="t" x="466" y="202" text-anchor="middle" font-size="12.5" fill="#475569">通用 App 能上，</text>
+  <text class="t" x="466" y="222" text-anchor="middle" font-size="12.5" fill="#475569">行业 App 被卡死</text>
+  <use href="#swifty" transform="translate(492,332) scale(0.5)"/>
+  <text class="t an" x="64" y="352">行业合规是硬门槛：金融要签名验签、医疗要隐私保护、零售要高并发</text>
+
+  <!-- ===== 格2 · 机制登场 ===== -->
+  <rect x="616" y="120" width="544" height="250" rx="16" fill="#ffffff" stroke="#c8d3e8" stroke-width="3"/>
+  <circle cx="642" cy="146" r="14" fill="#007AFF"/>
+  <text class="m" x="642" y="151" text-anchor="middle" font-size="15" font-weight="bold" fill="#ffffff">2</text>
+  <text class="t pt" x="668" y="152">机制登场 · 行业特性映射</text>
+  <rect x="636" y="176" width="160" height="60" rx="12" fill="#fef2f2" stroke="#e5484d" stroke-width="2.5"/>
+  <text class="t" x="716" y="202" text-anchor="middle" font-size="13" font-weight="bold" fill="#1e293b">金融</text>
+  <text class="t" x="716" y="222" text-anchor="middle" font-size="11" fill="#64748b">交易签名/SSL Pinning</text>
+  <rect x="810" y="176" width="160" height="60" rx="12" fill="#f0fdf4" stroke="#16a34a" stroke-width="2.5"/>
+  <text class="t" x="890" y="202" text-anchor="middle" font-size="13" font-weight="bold" fill="#1e293b">医疗</text>
+  <text class="t" x="890" y="222" text-anchor="middle" font-size="11" fill="#64748b">数据加密/HIPAA</text>
+  <rect x="984" y="176" width="156" height="60" rx="12" fill="#eff6ff" stroke="#007AFF" stroke-width="2.5"/>
+  <text class="t" x="1062" y="202" text-anchor="middle" font-size="13" font-weight="bold" fill="#1e293b">零售</text>
+  <text class="t" x="1062" y="222" text-anchor="middle" font-size="11" fill="#64748b">高并发/离线队列</text>
+  <rect x="636" y="250" width="504" height="28" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="2"/>
+  <text class="t" x="650" y="270" font-size="13" fill="#475569">合规映射：每条法规对应一项技术措施 + 证据留存</text>
+  <rect x="636" y="286" width="504" height="28" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="2"/>
+  <text class="t" x="650" y="306" font-size="13" fill="#475569">SSO + MDM：企业账号统一登录、远程配置推送、设备合规检查</text>
+  <text class="t" x="648" y="354" font-size="15" font-weight="bold" fill="#007AFF">「行业差异不在框架，在合规要求和性能预算的映射方式」</text>
+
+  <!-- ===== 格3 · 落地收束 ===== -->
+  <rect x="40" y="390" width="1120" height="230" rx="16" fill="#ffffff" stroke="#c8d3e8" stroke-width="3"/>
+  <circle cx="66" cy="416" r="14" fill="#f59e0b"/>
+  <text class="m" x="66" y="421" text-anchor="middle" font-size="15" font-weight="bold" fill="#ffffff">3</text>
+  <text class="t pt" x="92" y="422">落地收束 · 性能预算 + 合规清单</text>
+  <circle cx="76" cy="450" r="12" fill="#F05138"/>
+  <text class="t" x="76" y="455" text-anchor="middle" font-size="13" font-weight="bold" fill="#ffffff">1</text>
+  <text class="t" x="100" y="454" font-size="14" font-weight="bold" fill="#1e293b">性能预算量化</text>
+  <text class="t an" x="100" y="474">启动≤2s、列表60fps、内存峰值≤200MB</text>
+  <line x1="76" y1="466" x2="76" y2="490" stroke="#c8d3e8" stroke-width="2" stroke-dasharray="4 4"/>
+  <circle cx="76" cy="504" r="12" fill="#007AFF"/>
+  <text class="t" x="76" y="509" text-anchor="middle" font-size="13" font-weight="bold" fill="#ffffff">2</text>
+  <text class="t" x="100" y="508" font-size="14" font-weight="bold" fill="#1e293b">合规逐条映射</text>
+  <text class="t an" x="100" y="528">法规条款→技术措施→测试证据→文档</text>
+  <line x1="76" y1="520" x2="76" y2="544" stroke="#c8d3e8" stroke-width="2" stroke-dasharray="4 4"/>
+  <circle cx="76" cy="558" r="12" fill="#7C3AED"/>
+  <text class="t" x="76" y="563" text-anchor="middle" font-size="13" font-weight="bold" fill="#ffffff">3</text>
+  <text class="t" x="100" y="562" font-size="14" font-weight="bold" fill="#1e293b">企业集成</text>
+  <text class="t an" x="100" y="582">SSO 登录、MDM 配置推送、VPP 分发</text>
+  <rect x="360" y="428" width="780" height="176" rx="12" fill="#1e293b" stroke="#7C3AED" stroke-width="2.5"/>
+  <text class="m" x="380" y="452" font-size="11" fill="#94a3b8">// 合规映射表：法规 → 技术措施 → 验证方式</text>
+  <text class="m" x="380" y="476" font-size="12" fill="#e2e8f0"><tspan fill="#c084fc">struct</tspan> ComplianceItem {</text>
+  <text class="m" x="396" y="496" font-size="12" fill="#e2e8f0"><tspan fill="#c084fc">let</tspan> regulation: String  <tspan fill="#94a3b8">// e.g. "GDPR-17"</tspan></text>
+  <text class="m" x="396" y="516" font-size="12" fill="#e2e8f0"><tspan fill="#c084fc">let</tspan> measure: String     <tspan fill="#94a3b8">// e.g. "Keychain 加密"</tspan></text>
+  <text class="m" x="396" y="536" font-size="12" fill="#e2e8f0"><tspan fill="#c084fc">let</tspan> evidence: String    <tspan fill="#94a3b8">// e.g. "单元测试截图"</tspan></text>
+  <text class="m" x="380" y="556" font-size="12" fill="#e2e8f0">}</text>
+  <text class="m" x="380" y="584" font-size="11" fill="#94a3b8">// 每条合规项都有可追溯的技术证据，审计时直接导出</text>
+
+  <!-- ===== 知识条 ===== -->
+  <rect x="40" y="640" width="1120" height="152" rx="16" fill="#fef3c7" stroke="#f59e0b" stroke-width="3"/>
+  <use href="#elder" transform="translate(150,744) scale(0.62)"/>
+  <text class="t kt" x="230" y="676">Runtime 长老划重点</text>
+  <circle cx="248" cy="703" r="4" fill="#b45309"/>
+  <text class="t kb" x="266" y="708">行业差异在合规：金融要签名、医疗要加密、零售要高并发与离线</text>
+  <circle cx="248" cy="731" r="4" fill="#b45309"/>
+  <text class="t kb" x="266" y="736">性能预算量化到指标（启动/帧率/内存），超预算即阻断发布</text>
+  <circle cx="248" cy="759" r="4" fill="#b45309"/>
+  <text class="t kb" x="266" y="764">合规逐条映射到技术措施+证据，审计时可追溯、可导出</text>
+  <rect x="1000" y="700" width="140" height="32" rx="16" fill="none" stroke="#b45309" stroke-width="1.5"/>
+  <text class="t" x="1070" y="721" text-anchor="middle" font-size="13" font-weight="bold" fill="#b45309">EP.10 · 企业场景</text>
+
+  <text class="t ft" x="40" y="822">银翼工坊 Silverwing Workshop · 第 10 话 — 深入阅读 10-enterprise-applications.md · 动手去 EnterprisePatterns 实验场</text>
+</svg>

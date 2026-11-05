@@ -1,0 +1,205 @@
+<!-- EP.16 · 开播即卡 — 七跳链路与弱网治理，规范见 ./style-guide.md -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 840">
+  <defs>
+    <style>
+      .t{font-family:'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;}
+      .m{font-family:'SFMono-Regular',Menlo,Consolas,monospace;}
+      .st{font-size:15px;fill:#64748b;}
+      .bt{font-size:30px;font-weight:bold;fill:#1e293b;}
+      .pt{font-size:19px;font-weight:bold;fill:#1e293b;}
+      .an{font-size:12.5px;fill:#64748b;}
+      .cd{font-size:11.5px;fill:#e2e8f0;}
+      .kt{font-size:20px;font-weight:bold;fill:#78350f;}
+      .kb{font-size:15px;fill:#78350f;}
+      .ft{font-size:12.5px;fill:#94a3b8;}
+    </style>
+    <g id="swifty">
+      <ellipse cx="0" cy="2" rx="42" ry="7" fill="#1e293b" opacity="0.12"/>
+      <path d="M -28 -8 Q -30 -22 -16 -26 L 16 -26 Q 30 -22 28 -8 Z" fill="#F05138"/>
+      <ellipse cx="0" cy="-6" rx="32" ry="38" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2.5"/>
+      <ellipse cx="0" cy="2" rx="20" ry="22" fill="#ffffff"/>
+      <path d="M -8 -8 Q 0 -2 8 -8" stroke="#F05138" stroke-width="2" fill="none" stroke-linecap="round"/>
+      <circle cx="-11" cy="-14" r="5.5" fill="#1e293b"/>
+      <circle cx="11" cy="-14" r="5.5" fill="#1e293b"/>
+      <circle cx="-9" cy="-16" r="1.8" fill="#ffffff"/>
+      <circle cx="13" cy="-16" r="1.8" fill="#ffffff"/>
+      <path d="M 0 -6 L -4 0 L 4 0 Z" fill="#f97316"/>
+      <path d="M -16 -38 L -12 -50 L -8 -38 Z" fill="#F05138"/>
+      <path d="M -4 -40 L 0 -54 L 4 -40 Z" fill="#F05138"/>
+      <path d="M 8 -38 L 12 -50 L 16 -38 Z" fill="#F05138"/>
+      <path d="M -32 -10 Q -46 -4 -38 14 Q -30 8 -26 -2 Z" fill="#F05138" stroke="#dc2626" stroke-width="1.5"/>
+      <path d="M 32 -10 Q 46 -4 38 14 Q 30 8 26 -2 Z" fill="#F05138" stroke="#dc2626" stroke-width="1.5"/>
+      <line x1="-10" y1="30" x2="-10" y2="42" stroke="#f97316" stroke-width="3" stroke-linecap="round"/>
+      <line x1="10" y1="30" x2="10" y2="42" stroke="#f97316" stroke-width="3" stroke-linecap="round"/>
+    </g>
+    <g id="elder">
+      <ellipse cx="0" cy="60" rx="40" ry="6" fill="#1e293b" opacity="0.12"/>
+      <path d="M -30 58 L 30 58 L 24 2 L -24 2 Z" fill="#7C3AED" stroke="#5b21b6" stroke-width="2"/>
+      <rect x="-20" y="20" width="40" height="6" rx="3" fill="#a78bfa"/>
+      <circle cx="0" cy="-22" r="30" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2.5"/>
+      <path d="M -22 -26 Q -24 -40 -10 -44 L 10 -44 Q 24 -40 22 -26" fill="#4c1d95"/>
+      <circle cx="-10" cy="-25" r="7" fill="none" stroke="#64748b" stroke-width="1.8"/>
+      <circle cx="10" cy="-25" r="7" fill="none" stroke="#64748b" stroke-width="1.8"/>
+      <line x1="-3" y1="-25" x2="3" y2="-25" stroke="#64748b" stroke-width="1.8"/>
+      <circle cx="-10" cy="-25" r="3" fill="#007AFF"/>
+      <circle cx="10" cy="-25" r="3" fill="#007AFF"/>
+      <path d="M -10 -8 Q 0 -4 10 -8" stroke="#94a3b8" stroke-width="2" fill="none" stroke-linecap="round"/>
+      <path d="M -14 -6 Q -12 8 -6 14 L 6 14 Q 12 8 14 -6" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5"/>
+      <line x1="0" y1="-54" x2="0" y2="-72" stroke="#64748b" stroke-width="3"/>
+      <circle cx="0" cy="-76" r="6" fill="#F05138" stroke="#1e293b" stroke-width="1.5"/>
+      <path d="M 0 -82 L -4 -76 L 4 -76 Z" fill="#22c55e"/>
+    </g>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 Z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1200" height="840" fill="#f0f4fa"/>
+  <circle cx="180" cy="64" r="60" fill="#F05138" opacity="0.05"/>
+  <circle cx="1120" cy="120" r="80" fill="#007AFF" opacity="0.05"/>
+  <circle cx="1100" cy="760" r="70" fill="#7C3AED" opacity="0.04"/>
+  <circle cx="140" cy="780" r="50" fill="#F05138" opacity="0.04"/>
+
+  <rect x="40" y="6" width="120" height="6" rx="3" fill="#F05138"/>
+  <rect x="40" y="16" width="120" height="6" rx="3" fill="#007AFF"/>
+  <text class="t st" x="40" y="40">Swift &amp; ObjC 学园 · 漫画支部</text>
+  <text class="t bt" x="40" y="80">第 16 话 · 开播即卡 — 七跳链路与弱网治理</text>
+  <rect x="1020" y="26" width="140" height="44" rx="22" fill="#F05138"/>
+  <text class="m" x="1090" y="54" text-anchor="middle" font-size="19" font-weight="bold" fill="#ffffff">EP.16</text>
+  <line x1="0" y1="96" x2="1200" y2="96" stroke="#c8d3e8" stroke-width="2"/>
+
+  <!-- ===== 格1 · 痛点现场 ===== -->
+  <rect x="40" y="120" width="556" height="250" rx="16" fill="#ffffff" stroke="#c8d3e8" stroke-width="3"/>
+  <circle cx="66" cy="146" r="14" fill="#F05138"/>
+  <text class="m" x="66" y="151" text-anchor="middle" font-size="15" font-weight="bold" fill="#ffffff">1</text>
+  <text class="t pt" x="92" y="152">痛点现场 · 开播 5 秒黑屏</text>
+
+  <rect x="64" y="176" width="150" height="150" rx="10" fill="#1e293b" stroke="#e5484d" stroke-width="2.5"/>
+  <rect x="88" y="186" width="102" height="6" rx="3" fill="#334155"/>
+  <circle cx="139" cy="236" r="17" fill="none" stroke="#f87171" stroke-width="3"/>
+  <path d="M 139 222 L 139 236 L 149 244" stroke="#f87171" stroke-width="3" fill="none"/>
+  <text class="t" x="139" y="288" text-anchor="middle" font-size="12" fill="#f87171">开播 5s：黑屏</text>
+  <text class="t" x="139" y="306" text-anchor="middle" font-size="11" fill="#94a3b8">预览窗一直转圈</text>
+
+  <rect x="230" y="176" width="130" height="56" rx="10" fill="#fff1f2" stroke="#e5484d" stroke-width="2"/>
+  <text class="t" x="242" y="196" font-size="11.5" fill="#9f1239">在线人数</text>
+  <text class="m" x="242" y="218" font-size="17" font-weight="bold" fill="#e5484d">1200 → 300</text>
+
+  <rect x="230" y="242" width="130" height="56" rx="10" fill="#ecfdf5" stroke="#34a853" stroke-width="2"/>
+  <text class="t" x="242" y="262" font-size="11.5" fill="#166534">服务端大盘</text>
+  <text class="t" x="242" y="282" font-size="13" font-weight="bold" fill="#166534">全绿 · 无报警</text>
+  <rect x="242" y="290" width="18" height="4" rx="2" fill="#34a853"/>
+  <rect x="266" y="290" width="18" height="4" rx="2" fill="#34a853"/>
+  <rect x="290" y="290" width="18" height="4" rx="2" fill="#34a853"/>
+
+  <rect x="376" y="176" width="150" height="46" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+  <text class="t" x="388" y="199" font-size="12" fill="#475569">弹幕：卡了 / 主播跑路？</text>
+  <rect x="376" y="228" width="150" height="46" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+  <text class="t" x="388" y="251" font-size="12" fill="#475569">客服：全在说黑屏</text>
+
+  <text class="t an" x="64" y="352">机房说没事、用户说没法看：卡的不是服务，是链路</text>
+
+  <!-- ===== 格2 · 机制登场 ===== -->
+  <rect x="616" y="120" width="544" height="250" rx="16" fill="#ffffff" stroke="#c8d3e8" stroke-width="3"/>
+  <circle cx="642" cy="146" r="14" fill="#007AFF"/>
+  <text class="m" x="642" y="151" text-anchor="middle" font-size="15" font-weight="bold" fill="#ffffff">2</text>
+  <text class="t pt" x="668" y="152">弱网三件套 · 先保连续</text>
+
+  <rect x="636" y="176" width="164" height="112" rx="10" fill="#f8fafc" stroke="#c8d3e8" stroke-width="2"/>
+  <text class="t" x="648" y="196" font-size="12" font-weight="bold" fill="#1e293b">码率阶梯（ABR）</text>
+  <rect x="648" y="206" width="128" height="12" rx="6" fill="#F05138"/>
+  <text class="m" x="770" y="216" text-anchor="end" font-size="9.5" fill="#475569">4M</text>
+  <rect x="648" y="226" width="96" height="12" rx="6" fill="#f97316"/>
+  <text class="m" x="770" y="236" text-anchor="end" font-size="9.5" fill="#475569">2.5M</text>
+  <rect x="648" y="246" width="72" height="12" rx="6" fill="#fbbf24"/>
+  <text class="m" x="770" y="256" text-anchor="end" font-size="9.5" fill="#475569">1.8M</text>
+  <rect x="648" y="266" width="52" height="12" rx="6" fill="#94a3b8"/>
+  <text class="m" x="770" y="276" text-anchor="end" font-size="9.5" fill="#475569">1.2M</text>
+
+  <rect x="812" y="176" width="158" height="112" rx="10" fill="#f8fafc" stroke="#c8d3e8" stroke-width="2"/>
+  <text class="t" x="824" y="196" font-size="12" font-weight="bold" fill="#1e293b">FEC + NACK</text>
+  <rect x="824" y="208" width="20" height="16" rx="3" fill="#007AFF"/>
+  <rect x="848" y="208" width="20" height="16" rx="3" fill="#007AFF"/>
+  <rect x="872" y="208" width="20" height="16" rx="3" fill="#007AFF"/>
+  <rect x="896" y="208" width="20" height="16" rx="3" fill="#007AFF"/>
+  <rect x="920" y="208" width="20" height="16" rx="3" fill="#bfdbfe"/>
+  <text class="t" x="824" y="240" font-size="10.5" fill="#475569">关键帧 FEC 冗余 20%</text>
+  <text class="t" x="824" y="258" font-size="10.5" fill="#475569">普通帧 NACK 最多 2 次</text>
+  <text class="t" x="824" y="276" font-size="10.5" fill="#64748b">重传超 200ms 直接放弃</text>
+
+  <rect x="982" y="176" width="158" height="112" rx="10" fill="#f8fafc" stroke="#c8d3e8" stroke-width="2"/>
+  <text class="t" x="994" y="196" font-size="12" font-weight="bold" fill="#1e293b">抖动缓冲</text>
+  <rect x="994" y="206" width="132" height="52" rx="6" fill="#e0f2fe" stroke="#007AFF" stroke-width="2"/>
+  <rect x="994" y="236" width="132" height="22" rx="0" fill="#7dd3fc"/>
+  <line x1="994" y1="236" x2="1126" y2="236" stroke="#007AFF" stroke-width="2" stroke-dasharray="5 4"/>
+  <text class="t" x="994" y="232" font-size="10" fill="#075985">目标水位 150ms</text>
+  <text class="t" x="994" y="272" font-size="10" fill="#475569">depth = P95 × 2 + 30ms</text>
+  <text class="t" x="994" y="286" font-size="10" fill="#475569">minDepth 不低于 60ms</text>
+
+  <text class="t" x="648" y="314" font-size="11.5" fill="#166534">升档四条件：缓冲 ≥2s · 吞吐 ≥1.4× · 丢包小于 2% · RTT 小于 200ms</text>
+  <text class="t" x="648" y="334" font-size="11.5" fill="#9f1239">无条件降档：缓冲小于 300ms；安全降档：丢包 ≥8% 且缓冲小于 1.5s</text>
+
+  <!-- ===== 格3 · 七跳链路 ===== -->
+  <rect x="40" y="390" width="1120" height="230" rx="16" fill="#ffffff" stroke="#c8d3e8" stroke-width="3"/>
+  <circle cx="66" cy="416" r="14" fill="#f59e0b"/>
+  <text class="m" x="66" y="421" text-anchor="middle" font-size="15" font-weight="bold" fill="#ffffff">3</text>
+  <text class="t pt" x="92" y="422">七跳链路 · 每一跳打同口径 signpost</text>
+
+  <!-- 大节点：采集 -->
+  <rect x="70" y="452" width="150" height="64" rx="10" fill="#F05138" stroke="#c93a25" stroke-width="2"/>
+  <text class="t" x="145" y="478" text-anchor="middle" font-size="15" font-weight="bold" fill="#ffffff">采集</text>
+  <text class="m" x="145" y="498" text-anchor="middle" font-size="9.5" fill="#ffe4dc">capture · FPS/丢帧</text>
+  <!-- 小节点：前处理 -->
+  <rect x="242" y="466" width="96" height="44" rx="8" fill="#fff7ed" stroke="#f59e0b" stroke-width="2"/>
+  <text class="t" x="290" y="486" text-anchor="middle" font-size="12" font-weight="bold" fill="#78350f">前处理</text>
+  <text class="m" x="290" y="502" text-anchor="middle" font-size="9" fill="#92400e">preprocess</text>
+  <!-- 大节点：编码 -->
+  <rect x="360" y="452" width="150" height="64" rx="10" fill="#007AFF" stroke="#005ec4" stroke-width="2"/>
+  <text class="t" x="435" y="478" text-anchor="middle" font-size="15" font-weight="bold" fill="#ffffff">编码</text>
+  <text class="m" x="435" y="498" text-anchor="middle" font-size="9.5" fill="#dbeafe">encode · 耗时/码率/GOP</text>
+  <!-- 小节点：封装 -->
+  <rect x="532" y="466" width="96" height="44" rx="8" fill="#eef2ff" stroke="#6366f1" stroke-width="2"/>
+  <text class="t" x="580" y="486" text-anchor="middle" font-size="12" font-weight="bold" fill="#312e81">封装</text>
+  <text class="m" x="580" y="502" text-anchor="middle" font-size="9" fill="#4338ca">mux</text>
+  <!-- 大节点：传输 -->
+  <rect x="650" y="452" width="150" height="64" rx="10" fill="#e5484d" stroke="#b91c1c" stroke-width="2"/>
+  <rect x="646" y="448" width="158" height="72" rx="12" fill="none" stroke="#f87171" stroke-width="2" stroke-dasharray="6 4"/>
+  <text class="t" x="725" y="478" text-anchor="middle" font-size="15" font-weight="bold" fill="#ffffff">传输</text>
+  <text class="m" x="725" y="498" text-anchor="middle" font-size="9.5" fill="#ffe4e6">send · RTT/丢包/重连</text>
+  <!-- 小节点：分发 -->
+  <rect x="822" y="466" width="96" height="44" rx="8" fill="#f0fdf4" stroke="#34a853" stroke-width="2"/>
+  <text class="t" x="870" y="486" text-anchor="middle" font-size="12" font-weight="bold" fill="#14532d">分发</text>
+  <text class="m" x="870" y="502" text-anchor="middle" font-size="9" fill="#166534">CDN / TTFB</text>
+  <!-- 大节点：播放 -->
+  <rect x="940" y="452" width="150" height="64" rx="10" fill="#7C3AED" stroke="#5b21b6" stroke-width="2"/>
+  <text class="t" x="1015" y="478" text-anchor="middle" font-size="15" font-weight="bold" fill="#ffffff">播放</text>
+  <text class="m" x="1015" y="498" text-anchor="middle" font-size="9.5" fill="#ede9fe">play · 首帧/卡顿</text>
+
+  <!-- 箭头 -->
+  <path d="M 220 484 L 236 484" stroke="#94a3b8" stroke-width="2" marker-end="url(#ar)"/>
+  <path d="M 338 484 L 354 484" stroke="#94a3b8" stroke-width="2" marker-end="url(#ar)"/>
+  <path d="M 510 484 L 526 484" stroke="#94a3b8" stroke-width="2" marker-end="url(#ar)"/>
+  <path d="M 628 484 L 644 484" stroke="#94a3b8" stroke-width="2" marker-end="url(#ar)"/>
+  <path d="M 800 484 L 816 484" stroke="#94a3b8" stroke-width="2" marker-end="url(#ar)"/>
+  <path d="M 918 484 L 934 484" stroke="#94a3b8" stroke-width="2" marker-end="url(#ar)"/>
+
+  <rect x="700" y="528" width="100" height="26" rx="13" fill="#fff1f2" stroke="#e5484d" stroke-width="2"/>
+  <text class="t" x="750" y="546" text-anchor="middle" font-size="11" font-weight="bold" fill="#9f1239">丢包 8% · 缓冲 300ms</text>
+
+  <line x1="70" y1="572" x2="1090" y2="572" stroke="#c8d3e8" stroke-width="2" stroke-dasharray="8 6"/>
+  <text class="m" x="70" y="566" font-size="10.5" fill="#64748b">t0 开播</text>
+  <text class="m" x="1090" y="566" text-anchor="end" font-size="10.5" fill="#64748b">首帧上屏</text>
+  <text class="t" x="70" y="598" font-size="11.5" fill="#475569">七跳里任意一跳缺打点，故障就会被踢皮球：先统一 stage 名（capture / encode / send / play），再谈优化。</text>
+  <text class="t" x="70" y="616" font-size="11.5" fill="#475569">协议选型：RTMP 2~10s 上行 · SRT 200ms~2s 抗弱网 · WebRTC 100~400ms 互动</text>
+
+  <!-- ===== 知识条（单条大字） ===== -->
+  <rect x="40" y="640" width="1120" height="152" rx="16" fill="#fef3c7" stroke="#f59e0b" stroke-width="3"/>
+  <use href="#elder" transform="translate(150,744) scale(0.62)"/>
+  <text class="t kt" x="230" y="676">Runtime 长老划重点</text>
+  <rect x="238" y="690" width="880" height="66" rx="12" fill="#ffffff" stroke="#f59e0b" stroke-width="2"/>
+  <text class="t" x="262" y="729" font-size="18" font-weight="bold" fill="#78350f">先把七跳各打一个同口径的 signpost，再谈优化；否则「卡」永远只能靠猜。</text>
+  <rect x="1000" y="652" width="140" height="30" rx="15" fill="none" stroke="#b45309" stroke-width="1.5"/>
+  <text class="t" x="1070" y="672" text-anchor="middle" font-size="13" font-weight="bold" fill="#b45309">EP.16 · 七跳链路</text>
+
+  <text class="t ft" x="40" y="822">银翼工坊 Silverwing Workshop · 第 16 话 — 深入阅读 16-audio-video-pipeline.md · 动手去 MediaPipeline 实验场</text>
+</svg>
